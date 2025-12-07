@@ -269,7 +269,7 @@ const items: Item[] = [
     name: 'Подводная лодка Phoenix 1000',
     price: 80000000,
     category: 'transport',
-    image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800',
+    image: 'https://images.unsplash.com/photo-1582967788606-a171c1080cb0?w=800',
     description: 'Частная подлодка с люкс-интерьерами'
   },
   {
@@ -437,7 +437,7 @@ const items: Item[] = [
     name: 'Подводное путешествие на батискафе',
     price: 750000,
     category: 'experience',
-    image: 'https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=800',
+    image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800',
     description: 'Спуск к Титанику на 4000 метров'
   },
   {
@@ -501,7 +501,7 @@ const items: Item[] = [
     name: 'Редкий метеорит 50 кг',
     price: 2500000,
     category: 'luxury',
-    image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800',
+    image: 'https://images.unsplash.com/photo-1614732414444-096e5f1122d5?w=800',
     description: 'Железный метеорит с паспортом'
   },
   {
@@ -541,7 +541,7 @@ const items: Item[] = [
     name: 'Золотой унитаз',
     price: 6000000,
     category: 'luxury',
-    image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800',
+    image: 'https://images.unsplash.com/photo-1620626011761-996317b8d101?w=800',
     description: 'Из 18-каратного золота, как у Маурицио Каттелана'
   },
   {
