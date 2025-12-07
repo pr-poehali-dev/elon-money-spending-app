@@ -145,6 +145,31 @@ const Index = () => {
   const [statusFilter, setStatusFilter] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
 
+  const playSound = (type: 'add' | 'remove') => {
+    const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
+    const oscillator = audioContext.createOscillator();
+    const gainNode = audioContext.createGain();
+    
+    oscillator.connect(gainNode);
+    gainNode.connect(audioContext.destination);
+    
+    if (type === 'add') {
+      oscillator.frequency.setValueAtTime(523.25, audioContext.currentTime);
+      oscillator.frequency.exponentialRampToValueAtTime(783.99, audioContext.currentTime + 0.1);
+      gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+      gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.2);
+      oscillator.start(audioContext.currentTime);
+      oscillator.stop(audioContext.currentTime + 0.2);
+    } else {
+      oscillator.frequency.setValueAtTime(392.00, audioContext.currentTime);
+      oscillator.frequency.exponentialRampToValueAtTime(261.63, audioContext.currentTime + 0.15);
+      gainNode.gain.setValueAtTime(0.2, audioContext.currentTime);
+      gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.15);
+      oscillator.start(audioContext.currentTime);
+      oscillator.stop(audioContext.currentTime + 0.15);
+    }
+  };
+
   const addToCart = (item: Item) => {
     if (item.status === 'sold') {
       toast.error('Этот лот уже продан');
@@ -158,11 +183,13 @@ const Index = () => {
       toast.error('Этот лот уже в корзине');
       return;
     }
+    playSound('add');
     setCart([...cart, item]);
     toast.success('Добавлено в корзину!');
   };
 
   const removeFromCart = (id: number) => {
+    playSound('remove');
     setCart(cart.filter(item => item.id !== id));
     toast.success('Удалено из корзины');
   };
